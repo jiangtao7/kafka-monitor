@@ -14,8 +14,8 @@
 
 all: push
 
-TAG ?= 0.1
-PREFIX ?= quay.io/samsung_cnct/kafka-monitor
+TAG ?= 2.5.12.a
+PREFIX ?= docker.io/jtao2021/kafka-monitor
 
 container:
 	cd ../ && \
