@@ -16,9 +16,12 @@ FROM anapsix/alpine-java
 MAINTAINER coffeepac@gmail.com
 
 WORKDIR /opt/kafka-monitor
+
+RUN wget -O jmx_prometheus_javaagent.jar https://repo1.maven.org/maven2/io/prometheus/jmx/jmx_prometheus_javaagent/0.17.0/jmx_prometheus_javaagent-0.17.0.jar
 ADD build/ build/
 ADD bin/xinfra-monitor-start.sh bin/xinfra-monitor-start.sh
 ADD bin/kmf-run-class.sh bin/kmf-run-class.sh
+ADD config/prometheus-exporter.yaml config/prometheus-exporter.yaml
 ADD config/xinfra-monitor.properties config/xinfra-monitor.properties
 ADD config/log4j2.properties config/log4j2.properties
 ADD docker/kafka-monitor-docker-entry.sh kafka-monitor-docker-entry.sh
